@@ -13,6 +13,6 @@ jobs:
           password: ${{ secrets.SCALEWAY_API_KEY }}
           registry: ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}
       - name: Build the Docker image
-        run: docker build . -t ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/data_analysis --build-arg='BINARY_NAME=data_analysis' --build-arg='GITHUB_USERNAME=calmera' --build-arg='GITHUB_TOKEN=${{ secrets.ORG_TOKEN }}'
+        run: docker build . -t ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/nexthos-runtime
       - name: Push the Docker Image
-        run: docker push ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/data_analysis
+        run: docker push ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/nexthos-runtime

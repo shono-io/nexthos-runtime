@@ -5,9 +5,6 @@ ENV GOOS=linux
 
 WORKDIR /go/src/app
 
-ARG GITHUB_USERNAME
-ARG GITHUB_TOKEN
-
 # Update dependencies: On unchanged dependencies, cached layer will be reused
 COPY go.* /go/src/app
 RUN go mod download
