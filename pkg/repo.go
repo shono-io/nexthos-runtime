@@ -63,7 +63,7 @@ func (p *Repo) Get(ctx context.Context, key string, version string) (*PipelineVe
 		Key:       ip.Key,
 		Name:      ip.Name,
 		Version:   iv.Version,
-		Artifacts: map[string]string{},
+		Artifacts: map[string][]byte{},
 	}
 
 	for _, a := range iv.ArtifactKeys {
@@ -95,6 +95,6 @@ func (p *Repo) getKv(ctx context.Context, key string, target any) error {
 	return nil
 }
 
-func (p *Repo) getOb(ctx context.Context, key string) (string, error) {
-	return p.ob.GetString(ctx, key)
+func (p *Repo) getOb(ctx context.Context, key string) ([]byte, error) {
+	return p.ob.GetBytes(ctx, key)
 }
