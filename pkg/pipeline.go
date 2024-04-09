@@ -28,6 +28,10 @@ func (pv *PipelineVersion) ServiceConfig() micro.Config {
         Version:     pv.Version,
         Description: pv.Description,
         QueueGroup:  pv.Key,
+        Metadata: map[string]string{
+            "kind":     "benthos_pipeline",
+            "pipeline": pv.Key,
+        },
     }
 }
 
